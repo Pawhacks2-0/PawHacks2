@@ -1,0 +1,45 @@
+<div class="text-center py-10">
+  <h2 class="text-4xl lg:text-5xl font-bold mb-6">Countdown till Pawhacks</h2>
+  <!-- Make the element inline-block so that transform animations don't affect layout -->
+  <p
+    id="countdown"
+    class="inline-block text-3xl md:text-4xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-red-500 to-black transition-transform duration-200 ease-out"
+  ></p>
+</div>
+
+<script client:load>
+  // Set the target date to March 14th, 2025
+  const targetDate = new Date("2025-03-14T00:00:00").getTime();
+  const countdownEl = document.getElementById("countdown");
+
+  function updateCountdown() {
+    const now = Date.now();
+    const diff = targetDate - now;
+
+    if (diff <= 0) {
+      countdownEl.textContent = "Pawhacks has started!";
+      countdownEl.style.transform = "scale(1)";
+      clearInterval(timer);
+      return;
+    }
+
+    // Calculate the remaining days, hours, minutes, and seconds
+    const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+    // Update the countdown text
+    countdownEl.textContent = `${days}d ${hours}h ${minutes}m ${seconds}s`;
+
+    // Trigger a subtle scale "pop" using CSS transitions.
+    countdownEl.style.transform = "scale(1.1)";
+    setTimeout(() => {
+      countdownEl.style.transform = "scale(1)";
+    }, 100); // 100ms delay for a quick pop effect
+  }
+
+  // Run the countdown update immediately and then every second
+  updateCountdown();
+  const timer = setInterval(updateCountdown, 1000);
+</script>

@@ -1,0 +1,102 @@
+---
+import Container from "@components/container.astro";
+import Link from "@components/ui/link.astro";
+import { Picture } from "astro:assets";
+import logo from "assets/pawhacks_small_logo.png";
+
+const menuitems = [
+  {
+    title: "PawHacks2024",
+    path: "/pawhacks2024",
+  },
+  {
+    title: "About",
+    path: "/about",
+  },
+  {
+    title: "Register",
+    badge: true,
+    path: "/register",
+  },
+];
+---
+
+<Container>
+  <header class="my-5">
+    <nav>
+      <div class="grid grid-cols-2 lg:grid-cols-3 items-center">
+        {/* Logo */}
+        <div class="flex items-center">
+          <Link href="/" class="bg-transparent hover:bg-transparent">
+            <Picture
+              src={logo}
+              alt="PawHacks Logo"
+              width={150}
+              height={80}
+            />
+          </Link>
+        </div>
+
+        {/* Desktop Navigation */}
+        <div class="hidden lg:flex justify-center">
+          <ul class="flex gap-3">
+            {menuitems.map((item, index) => (
+              <li>
+                <a
+                  href={item.path}
+                  class="flex px-3 py-2 items-center text-gray-600 hover:text-gray-900"
+                >
+                  <span>{item.title}</span>
+                  {item.badge && (
+                    <span class="ml-1 px-2 py-0.5 text-[10px] animate-pulse font-semibold uppercase text-white bg-red-600 rounded-full">
+                      open
+                    </span>
+                  )}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        {/* Mobile Menu */}
+        <div class="flex justify-end lg:hidden">
+          <button id="mobile-menu-button" class="w-6 h-6 text-gray-800">
+            ☰
+          </button>
+        </div>
+      </div>
+
+      {/* Mobile Menu Dropdown */}
+      <div id="mobile-menu" class="hidden lg:hidden p-4">
+        <ul class="flex flex-col gap-4">
+          {menuitems.map((item, index) => (
+            <li key={index}>
+              <a
+                href={item.path}
+                class="flex items-center text-gray-600 hover:text-gray-900"
+              >
+                <span>{item.title}</span>
+                {item.badge && (
+                  <span class="ml-2 px-2 py-0.5 text-xs animate-pulse font-semibold uppercase text-white bg-red-600 rounded-full">
+                    open
+                  </span>
+                )}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </nav>
+  </header>
+</Container>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const menuButton = document.getElementById('mobile-menu-button');
+    const mobileMenu = document.getElementById('mobile-menu');
+
+    menuButton.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+    });
+  });
+</script>
