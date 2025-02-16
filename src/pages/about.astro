@@ -1,0 +1,53 @@
+---
+import Container from "@components/container.astro";
+import Features from "@components/features.astro";
+import Layout from "@layouts/Layout.astro";
+const titlePage = "About Us"
+---
+
+<Layout title={titlePage}>
+    <Container>
+        <div>
+            <div class="flex items-center justify-between gap-12 w-full">
+                <div class="max-w-xl text-left">
+                    <h1 class = "section-left-h">What's PawHacks?</h1>
+            <p class = "section-left-p">Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam incidunt labore qui, aliquam odit id delectus. Officiis esse, consectetur iste excepturi corporis quibusdam exercitationem asperiores porro? Fuga doloremque provident natus.</p>
+                </div>
+                <img src="/src/assets/pawhacks_big_logo.png" alt="small logo" class="w-1/2 max-w-lg rounded-lg" />
+            </div>
+
+            <div class="flex flex-row-reverse items-center justify-between gap-12 w-full">
+                <div class="max-w-xl text-right">
+                    <h1 class = "section-left-h">What's PawHacks?</h1>
+            <p class = "section-left-p">Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam incidunt labore qui, aliquam odit id delectus. Officiis esse, consectetur iste excepturi corporis quibusdam exercitationem asperiores porro? Fuga doloremque provident natus.</p>
+                </div>
+                <img src="/src/assets/pawhacks_big_logo.png" alt="small logo" class="w-1/2 max-w-lg rounded-lg" />
+            </div>
+
+            <div class="flex items-center justify-between gap-12 w-full">
+                <div class="max-w-xl text-left">
+                    <h1 class = "section-left-h">What's PawHacks?</h1>
+            <p class = "section-left-p">Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam incidunt labore qui, aliquam odit id delectus. Officiis esse, consectetur iste excepturi corporis quibusdam exercitationem asperiores porro? Fuga doloremque provident natus.</p>
+                </div>
+                <img src="/src/assets/pawhacks_big_logo.png" alt="small logo" class="w-1/2 max-w-lg rounded-lg" />
+            </div>
+        </div>
+        <Features>
+        </Features>
+    </Container>
+</Layout>
+
+<style>
+    .section-left-h {
+        @apply text-left text-4xl lg:text-5xl xl:text-6xl font-bold mt-32 mb-5;
+    }
+    .section-left-p {
+        @apply text-left text-lg text-slate-600 max-w-xl mr-auto mb-10;
+    }
+    .section-right-h {
+        @apply text-right text-4xl lg:text-5xl xl:text-6xl font-bold mt-32 mb-5;
+    }
+    .section-right-p {
+        @apply text-right text-lg text-slate-600 max-w-xl ml-auto mb-32;
+    }
+</style>
