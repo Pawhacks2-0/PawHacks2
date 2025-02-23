@@ -8,31 +8,16 @@ const titlePage = "Registration"
 <Layout title={titlePage}>
     <Container>
         <div>
-            <div class="flex items-center justify-center w-full">
+            <div class="flex items-center justify-center w-full mt-16">
                 <div class="max-w-xl text-center">
                     <h1 class="text-4xl lg:text-5xl font-bold lg:tracking-tight">Registration is open!</h1>
                 </div>
             </div>
-
-            <div class="mt-4 flex items-center justify-center w-full">
-                <form method="POST" action="/api/register" class="flex flex-col space-y-4">
-                    <div class="flex gap-x-4">
-                        <label class="flex-1">
-                            <span class="block text-sm font-medium text-gray-700">First Name</span>
-                            <input type="text" name="firstname" placeholder="John" required class="border p-2 rounded w-full" />
-                        </label>
-                        <label class="flex-1">
-                            <span class="block text-sm font-medium text-gray-700">Last Name</span>
-                            <input type="text" name="lastname" placeholder="Doe" required class="border p-2 rounded w-full" />
-                        </label>
-                    </div>
-                    <label>
-                        <span class="block text-sm font-medium text-gray-700">Email</span>
-                        <input type="email" name="email" placeholder="paws.husky@northeastern.edu" required class="border p-2 rounded w-full" />
-                    </label>
-
-                    <button type="submit" class="bg-gray-400 text-black p-2 rounded">Submit</button>
-                </form>
+            <div class="max-w-4xl w-full mx-auto p-6 bg-white shadow-lg rounded-lg">
+                <iframe src="https://forms.gle/vCcbwSzdjEjMmFHJ8"
+                        class="w-full h-[800px] border-0 rounded-md"
+                        allowfullscreen>
+                </iframe>
             </div>
         </div>
     </Container>
